@@ -1,4 +1,4 @@
-package sfgpetclinic;
+package xyz.riocode.guruspring.sfgpetclinic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
