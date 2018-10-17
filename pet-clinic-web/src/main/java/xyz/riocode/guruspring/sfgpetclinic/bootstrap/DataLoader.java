@@ -6,8 +6,6 @@ import xyz.riocode.guruspring.sfgpetclinic.model.Owner;
 import xyz.riocode.guruspring.sfgpetclinic.model.Vet;
 import xyz.riocode.guruspring.sfgpetclinic.services.OwnerService;
 import xyz.riocode.guruspring.sfgpetclinic.services.VetService;
-import xyz.riocode.guruspring.sfgpetclinic.services.map.OwnerServiceMap;
-import xyz.riocode.guruspring.sfgpetclinic.services.map.VetMapService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -15,9 +13,10 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final OwnerService ownerService;
 
-    public DataLoader() {
-        this.vetService = new VetMapService();
-        this.ownerService = new OwnerServiceMap();
+    public DataLoader(VetService vetService, OwnerService ownerService) {
+
+        this.vetService = vetService;
+        this.ownerService = ownerService;
     }
 
     @Override
