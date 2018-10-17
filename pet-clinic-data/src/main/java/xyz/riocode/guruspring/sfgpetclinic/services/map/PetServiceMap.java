@@ -1,11 +1,11 @@
 package xyz.riocode.guruspring.sfgpetclinic.services.map;
 
 import xyz.riocode.guruspring.sfgpetclinic.model.Pet;
-import xyz.riocode.guruspring.sfgpetclinic.services.CrudService;
+import xyz.riocode.guruspring.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
