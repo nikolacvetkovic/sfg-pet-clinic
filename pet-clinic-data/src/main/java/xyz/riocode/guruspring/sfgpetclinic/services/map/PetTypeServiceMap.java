@@ -1,10 +1,12 @@
 package xyz.riocode.guruspring.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import xyz.riocode.guruspring.sfgpetclinic.model.PetType;
 import xyz.riocode.guruspring.sfgpetclinic.services.PetTypeService;
 
 import java.util.Set;
 
+@Service
 public class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
