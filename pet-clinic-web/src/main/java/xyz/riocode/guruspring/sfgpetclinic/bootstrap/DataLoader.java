@@ -3,10 +3,7 @@ package xyz.riocode.guruspring.sfgpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import xyz.riocode.guruspring.sfgpetclinic.model.*;
-import xyz.riocode.guruspring.sfgpetclinic.services.OwnerService;
-import xyz.riocode.guruspring.sfgpetclinic.services.PetTypeService;
-import xyz.riocode.guruspring.sfgpetclinic.services.SpecialityService;
-import xyz.riocode.guruspring.sfgpetclinic.services.VetService;
+import xyz.riocode.guruspring.sfgpetclinic.services.*;
 
 import java.time.LocalDate;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(VetService vetService, OwnerService ownerService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(VetService vetService, OwnerService ownerService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
 
         this.vetService = vetService;
         this.ownerService = ownerService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -87,6 +86,13 @@ public class DataLoader implements CommandLineRunner {
         o2.getPets().add(fionasCat);
 
         ownerService.save(o2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("Owners are added...");
 
