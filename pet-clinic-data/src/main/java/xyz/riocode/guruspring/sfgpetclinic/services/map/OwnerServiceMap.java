@@ -1,5 +1,6 @@
 package xyz.riocode.guruspring.sfgpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import xyz.riocode.guruspring.sfgpetclinic.model.Owner;
 import xyz.riocode.guruspring.sfgpetclinic.model.Pet;
@@ -10,6 +11,7 @@ import xyz.riocode.guruspring.sfgpetclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetService petService;

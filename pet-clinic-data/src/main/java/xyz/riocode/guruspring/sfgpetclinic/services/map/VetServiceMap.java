@@ -1,5 +1,6 @@
 package xyz.riocode.guruspring.sfgpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import xyz.riocode.guruspring.sfgpetclinic.model.Speciality;
 import xyz.riocode.guruspring.sfgpetclinic.model.Vet;
@@ -9,6 +10,7 @@ import xyz.riocode.guruspring.sfgpetclinic.services.VetService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;

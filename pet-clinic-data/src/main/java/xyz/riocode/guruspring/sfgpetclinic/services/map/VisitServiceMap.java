@@ -1,5 +1,6 @@
 package xyz.riocode.guruspring.sfgpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import xyz.riocode.guruspring.sfgpetclinic.model.Visit;
 import xyz.riocode.guruspring.sfgpetclinic.services.VisitService;
@@ -7,6 +8,7 @@ import xyz.riocode.guruspring.sfgpetclinic.services.VisitService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
 

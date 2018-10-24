@@ -1,5 +1,6 @@
 package xyz.riocode.guruspring.sfgpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import xyz.riocode.guruspring.sfgpetclinic.model.PetType;
 import xyz.riocode.guruspring.sfgpetclinic.services.PetTypeService;
@@ -7,6 +8,7 @@ import xyz.riocode.guruspring.sfgpetclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
