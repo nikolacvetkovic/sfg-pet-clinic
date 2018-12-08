@@ -7,6 +7,7 @@ import xyz.riocode.guruspring.sfgpetclinic.repositories.OwnerRepository;
 import xyz.riocode.guruspring.sfgpetclinic.services.OwnerService;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -22,6 +23,11 @@ public class OwnerSDJpaService implements OwnerService {
     @Override
     public Owner findByLastName(String lastName) {
         return ownerRepository.findByLastName(lastName);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
     }
 
     @Override
