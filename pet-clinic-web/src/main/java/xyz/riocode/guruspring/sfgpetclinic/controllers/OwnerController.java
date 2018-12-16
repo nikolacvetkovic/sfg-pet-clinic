@@ -3,10 +3,8 @@ package xyz.riocode.guruspring.sfgpetclinic.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import xyz.riocode.guruspring.sfgpetclinic.model.Owner;
 import xyz.riocode.guruspring.sfgpetclinic.services.OwnerService;
@@ -24,17 +22,10 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-//    @InitBinder
-//    public void setAllowedFields(WebDataBinder dataBinder){
-//        dataBinder.setDisallowedFields("id");
-//    }
-
-//    @GetMapping({"", "/", "/index", "/index.html"})
-//    public String listOwners(Model model){
-//        model.addAttribute("owners", ownerService.findAll());
-//
-//        return "owners/index";
-//    }
+    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder){
+        dataBinder.setDisallowedFields("id");
+    }
 
     @GetMapping("/find")
     public String findOwners(Model model){
